@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Categories | Civic Reporting</title>
+  <meta name="description" content="Add, edit, or remove report categories." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="index-1.html" class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <a href="dashboard-1.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span> Dashboard
+        </a>
+        <a href="reports.html">
+          <span class="nav-icon" aria-hidden="true">📄</span> Reports
+        </a>
+        <a href="users.html">
+          <span class="nav-icon" aria-hidden="true">👥</span> Users
+        </a>
+        <a href="categories.html" class="active">
+          <span class="nav-icon" aria-hidden="true">🗂️</span> Categories
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login-1.html" class="logout-link">
+          <span class="nav-icon" aria-hidden="true">↩</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="dashboard-main">
+
+      <!-- ============ HEADER ============ -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <h1>Manage Categories <span class="role-badge">Admin</span></h1>
+            <p class="subtitle">Add, edit, or remove report categories.</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="notification-btn" aria-label="View notifications">
+            🔔
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="header-avatar admin-avatar" aria-hidden="true">A</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+
+        <section class="dashboard-card">
+          <div class="dashboard-card-header">
+            <h2>Report Categories</h2>
+            <button type="button" class="btn btn-primary btn-sm" id="addCategoryBtn">+ Add Category</button>
+          </div>
+
+          <!-- ============ CATEGORIES TABLE ============ -->
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Category Name</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="categoriesTableBody">
+                <!-- Populated by js/admin.js: seeded defaults + LocalStorage changes -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ADD / EDIT CATEGORY MODAL ============ -->
+  <div class="modal-overlay" id="categoryModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="categoryModalTitle">
+      <div class="modal-header">
+        <h2 id="categoryModalTitle">Add Category</h2>
+        <button type="button" class="modal-close-btn" id="categoryModalCloseBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="categoryForm" novalidate>
+        <div class="modal-body">
+          <input type="hidden" id="categoryId" value="" />
+
+          <div class="form-group">
+            <label for="categoryName">Category Name</label>
+            <input
+              type="text"
+              id="categoryName"
+              name="categoryName"
+              class="form-control"
+              placeholder="e.g. Street Lighting"
+              aria-describedby="categoryNameError"
+            />
+            <p id="categoryNameError" class="error-message" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="categoryModalCancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

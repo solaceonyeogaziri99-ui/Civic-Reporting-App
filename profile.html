@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile | Civic Reporting</title>
+  <meta name="description" content="View and update your account details." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Citizen navigation">
+        <a href="dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span> Dashboard
+        </a>
+        <a href="report.html">
+          <span class="nav-icon" aria-hidden="true">📝</span> Report an Issue
+        </a>
+        <a href="my-reports.html">
+          <span class="nav-icon" aria-hidden="true">📄</span> My Reports
+        </a>
+        <a href="suggestion.html">
+          <span class="nav-icon" aria-hidden="true">💡</span> Submit Suggestion
+        </a>
+        <a href="profile.html" class="active">
+          <span class="nav-icon" aria-hidden="true">👤</span> Profile
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../login.html" class="logout-link">
+          <span class="nav-icon" aria-hidden="true">↩</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="dashboard-main">
+
+      <!-- ============ HEADER ============ -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <h1>My Profile</h1>
+            <p class="subtitle">View and update your account details.</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="notification-btn" aria-label="View notifications">
+            🔔
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="header-avatar" aria-hidden="true">C</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+
+        <section class="dashboard-card form-card">
+
+          <!-- ============ PROFILE HEADER ============ -->
+          <div class="profile-header">
+            <div class="profile-avatar-lg" id="profileAvatar" aria-hidden="true">C</div>
+            <div class="profile-header-info">
+              <h2 id="profileHeaderName">Loading...</h2>
+              <p id="profileHeaderEmail"></p>
+            </div>
+          </div>
+
+          <!-- ============ ACCOUNT STATS ============ -->
+          <div class="profile-stats-row">
+            <div class="stat-chip">
+              <strong id="profileReportsCount">0</strong>
+              Reports Submitted
+            </div>
+            <div class="stat-chip">
+              <strong id="profileSuggestionsCount">0</strong>
+              Suggestions Submitted
+            </div>
+          </div>
+
+          <div id="profileBanner" class="form-banner" role="alert"></div>
+
+          <!-- ============ EDIT PROFILE FORM ============ -->
+          <form id="profileForm" novalidate>
+            <div class="form-group">
+              <label for="profileName">Full Name</label>
+              <input
+                type="text"
+                id="profileName"
+                name="profileName"
+                class="form-control"
+                aria-describedby="profileNameError"
+              />
+              <p id="profileNameError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="profileEmail">Email Address</label>
+              <input
+                type="email"
+                id="profileEmail"
+                name="profileEmail"
+                class="form-control"
+                aria-describedby="profileEmailError"
+              />
+              <p id="profileEmailError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="profilePhone">Phone Number</label>
+              <input
+                type="tel"
+                id="profilePhone"
+                name="profilePhone"
+                class="form-control"
+                aria-describedby="profilePhoneError"
+              />
+              <p id="profilePhoneError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-actions-row">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <a href="dashboard.html" class="btn btn-outline">Cancel</a>
+            </div>
+          </form>
+
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/citizen.js"></script>
+</body>
+</html>

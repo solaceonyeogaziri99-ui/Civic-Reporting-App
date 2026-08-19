@@ -1,0 +1,45 @@
+/* ============================================
+   CIVIC REPORTING APP — ADMIN STYLESHEET
+   Small admin-specific overrides on top of the
+   shared dashboard layout in dashboard.css.
+   ============================================ */
+
+/* Distinguish the admin avatar/role visually from the citizen side */
+.header-avatar.admin-avatar {
+  background-color: var(--color-accent);
+}
+
+.role-badge {
+  display: inline-block;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Small circular initials avatar used in the "Citizen" table column */
+.citizen-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.citizen-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Reports | Civic Reporting</title>
+  <meta name="description" content="Review citizen reports, update status, and respond." />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="./css/auth.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <a href="dashboard-1.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span> Dashboard
+        </a>
+        <a href="reports.html" class="active">
+          <span class="nav-icon" aria-hidden="true">📄</span> Reports
+        </a>
+        <a href="users.html">
+          <span class="nav-icon" aria-hidden="true">👥</span> Users
+        </a>
+        <a href="categories.html">
+          <span class="nav-icon" aria-hidden="true">🗂️</span> Categories
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login-1.html" class="logout-link">
+          <span class="nav-icon" aria-hidden="true">↩</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="dashboard-main">
+
+      <!-- ============ HEADER ============ -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <h1>Manage Reports <span class="role-badge">Admin</span></h1>
+            <p class="subtitle">Review reports, update status, and respond to citizens.</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="notification-btn" aria-label="View notifications">
+            🔔
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="header-avatar admin-avatar" aria-hidden="true">A</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+
+        <section class="dashboard-card">
+          <div class="dashboard-card-header">
+            <h2>All Reports</h2>
+          </div>
+
+          <!-- ============ SEARCH + FILTER ============ -->
+          <div class="reports-toolbar">
+            <div class="search-field">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <input
+                type="text"
+                id="reportSearchInput"
+                placeholder="Search by title, ID, or citizen..."
+                aria-label="Search reports by title, ID, or citizen"
+              />
+            </div>
+
+            <div class="filter-chips" role="group" aria-label="Filter reports by status">
+              <button type="button" class="filter-chip is-active" data-status="all">All</button>
+              <button type="button" class="filter-chip" data-status="pending">Pending</button>
+              <button type="button" class="filter-chip" data-status="under-review">Under Review</button>
+              <button type="button" class="filter-chip" data-status="in-progress">In Progress</button>
+              <button type="button" class="filter-chip" data-status="resolved">Resolved</button>
+              <button type="button" class="filter-chip" data-status="rejected">Rejected</button>
+            </div>
+          </div>
+
+          <!-- ============ REPORTS TABLE ============ -->
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Report ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Citizen</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reportsTableBody">
+                <!-- Populated by js/admin.js: demo reports + citizen submissions + admin updates -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ REVIEW REPORT MODAL ============ -->
+  <div class="modal-overlay" id="reviewModal">
+    <div class="modal modal-lg" role="dialog" aria-modal="true" aria-labelledby="reviewTitle">
+      <div class="modal-header">
+        <h2 id="reviewTitle">Report Title</h2>
+        <button type="button" class="modal-close-btn" id="reviewModalCloseBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="reviewForm" novalidate>
+        <div class="modal-body">
+          <input type="hidden" id="reviewReportId" value="" />
+
+          <div class="detail-grid">
+            <div class="detail-item">
+              <div class="detail-label">Report ID</div>
+              <div class="detail-value" id="reviewId">—</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Category</div>
+              <div class="detail-value" id="reviewCategory">—</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Citizen</div>
+              <div class="detail-value" id="reviewCitizen">—</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Location</div>
+              <div class="detail-value" id="reviewLocation">—</div>
+            </div>
+          </div>
+
+          <div class="detail-description">
+            <div class="detail-label">Description</div>
+            <p id="reviewDescription">—</p>
+          </div>
+
+          <div class="detail-image" id="reviewImageWrapper" style="display: none;"></div>
+
+          <div class="form-group">
+            <label for="reviewStatusSelect">Status</label>
+            <select id="reviewStatusSelect" name="reviewStatusSelect" class="form-control">
+              <option value="pending">Pending</option>
+              <option value="under-review">Under Review</option>
+              <option value="in-progress">In Progress</option>
+              <option value="resolved">Resolved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="reviewResponseInput">Administrator Response</label>
+            <textarea
+              id="reviewResponseInput"
+              name="reviewResponseInput"
+              class="form-control"
+              placeholder="Write a response the citizen will see on their report..."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="reviewModalCancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

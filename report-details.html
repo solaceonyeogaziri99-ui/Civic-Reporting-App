@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Details | Civic Reporting</title>
+  <meta name="description" content="View the full details and status of your submitted report." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Citizen navigation">
+        <a href="dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span> Dashboard
+        </a>
+        <a href="report.html">
+          <span class="nav-icon" aria-hidden="true">📝</span> Report an Issue
+        </a>
+        <a href="my-reports.html" class="active">
+          <span class="nav-icon" aria-hidden="true">📄</span> My Reports
+        </a>
+        <a href="suggestion.html">
+          <span class="nav-icon" aria-hidden="true">💡</span> Submit Suggestion
+        </a>
+        <a href="profile.html">
+          <span class="nav-icon" aria-hidden="true">👤</span> Profile
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../login.html" class="logout-link">
+          <span class="nav-icon" aria-hidden="true">↩</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="dashboard-main">
+
+      <!-- ============ HEADER ============ -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <h1>Report Details</h1>
+            <p class="subtitle">Full details and current status of your report.</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="notification-btn" aria-label="View notifications">
+            🔔
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="header-avatar" aria-hidden="true">C</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content" id="reportDetailsContainer">
+
+        <a href="my-reports.html" class="back-link">&larr; Back to My Reports</a>
+
+        <section class="dashboard-card">
+          <div class="detail-card-header">
+            <div>
+              <h2 id="detailTitle">Loading report...</h2>
+              <span class="report-id">Report ID: <span id="detailReportId">—</span></span>
+            </div>
+            <div id="detailStatusBadge"></div>
+          </div>
+
+          <div class="detail-grid">
+            <div class="detail-item">
+              <div class="detail-label">Category</div>
+              <div class="detail-value" id="detailCategory">—</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Location</div>
+              <div class="detail-value" id="detailLocation">—</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Date Submitted</div>
+              <div class="detail-value" id="detailDate">—</div>
+            </div>
+          </div>
+
+          <!-- ============ PROGRESS TRACKER ============ -->
+          <div class="progress-stepper" id="progressStepper" aria-label="Report progress"></div>
+
+          <div class="detail-description">
+            <div class="detail-label">Description</div>
+            <p id="detailDescription">—</p>
+          </div>
+
+          <div class="detail-image" id="detailImageWrapper"></div>
+
+          <div class="admin-response-box">
+            <div class="detail-label">Administrator Response</div>
+            <p id="detailAdminResponse">No response yet.</p>
+          </div>
+
+          <div class="detail-actions">
+            <a href="my-reports.html" class="btn btn-outline">Back to My Reports</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/citizen.js"></script>
+</body>
+</html>

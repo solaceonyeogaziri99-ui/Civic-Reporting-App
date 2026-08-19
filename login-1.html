@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civic Reporting | Login</title>
+  <meta name="description" content="Login to your Civic Reporting account to report and track community issues." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index-1.html" class="navbar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navbar-links" aria-label="Primary navigation">
+        <a href="index-1.html">Home</a>
+        <a href="#cta">About</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="login-1.html" class="active">Login</a>
+        <a href="register.html" class="btn btn-primary">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ LOGIN FORM ============ -->
+  <main class="auth-main">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="auth-logo">
+          <span class="logo-icon" aria-hidden="true">C</span>
+          Civic Reporting
+        </div>
+
+        <div class="auth-heading">
+          <h1>Welcome Back</h1>
+          <p>Log in to report issues and track your community reports.</p>
+        </div>
+
+        <div id="formBanner" class="form-banner" role="alert"></div>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="you@example.com"
+              autocomplete="username"
+              aria-describedby="emailError"
+            />
+            <p id="emailError" class="error-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-field">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-control"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                aria-describedby="passwordError"
+              />
+              <button type="button" class="toggle-password" aria-pressed="false">Show</button>
+            </div>
+            <p id="passwordError" class="error-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-meta-row">
+            <label class="checkbox-row" for="rememberMe">
+              <input type="checkbox" id="rememberMe" name="rememberMe" />
+              Remember me
+            </label>
+            <a href="#" class="link-primary">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+
+        <p class="auth-footer-text">
+          Don't have an account? <a href="register.html" class="link-primary">Register</a>
+        </p>
+
+        <div class="demo-note">
+          <strong>Demo tip:</strong> Log in with <code>admin@example.com</code> to preview the admin dashboard, or any other valid email to preview the citizen dashboard.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

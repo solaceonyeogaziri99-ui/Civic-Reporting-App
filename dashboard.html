@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citizen Dashboard | Civic Reporting</title>
+  <meta name="description" content="View your report statistics and recent activity." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="index-1.html" class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Citizen navigation">
+        <a href="dashboard.html" class="active">
+          <span class="nav-icon" aria-hidden="true">🏠</span> Dashboard
+        </a>
+        <a href="report.html">
+          <span class="nav-icon" aria-hidden="true">📝</span> Report an Issue
+        </a>
+        <a href="my-reports.html">
+          <span class="nav-icon" aria-hidden="true">📄</span> My Reports
+        </a>
+        <a href="suggestion.html">
+          <span class="nav-icon" aria-hidden="true">💡</span> Submit Suggestion
+        </a>
+        <a href="profile.html">
+          <span class="nav-icon" aria-hidden="true">👤</span> Profile
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login-1.html" class="logout-link">
+          <span class="nav-icon" aria-hidden="true">↩</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="dashboard-main">
+
+      <!-- ============ HEADER ============ -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <h1>Welcome, Citizen</h1>
+            <p class="subtitle">Here's an overview of your reports.</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="notification-btn" aria-label="View notifications">
+            🔔
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="header-avatar" aria-hidden="true">C</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+
+        <!-- ============ STATISTICS ============ -->
+        <section class="stats-grid" aria-label="Report statistics">
+          <div class="stat-card">
+            <div class="stat-icon icon-total" aria-hidden="true">📊</div>
+            <div class="stat-info">
+              <div class="stat-value" id="statTotal">0</div>
+              <div class="stat-label">Total Reports</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-pending" aria-hidden="true">⏳</div>
+            <div class="stat-info">
+              <div class="stat-value" id="statPending">0</div>
+              <div class="stat-label">Pending</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-progress" aria-hidden="true">🔄</div>
+            <div class="stat-info">
+              <div class="stat-value" id="statProgress">0</div>
+              <div class="stat-label">In Progress</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-resolved" aria-hidden="true">✅</div>
+            <div class="stat-info">
+              <div class="stat-value" id="statResolved">0</div>
+              <div class="stat-label">Resolved</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ RECENT REPORTS ============ -->
+        <section class="dashboard-card">
+          <div class="dashboard-card-header">
+            <h2>Recent Reports</h2>
+            <a href="my-reports.html" class="link-primary">View All</a>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Report ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="recentReportsBody">
+                <!-- Populated by js/citizen.js with demo data -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ QUICK ACTIONS ============ -->
+        <section class="dashboard-card">
+          <div class="dashboard-card-header">
+            <h2>Quick Actions</h2>
+          </div>
+
+          <div class="quick-actions">
+            <a href="report.html" class="btn btn-primary">Report an Issue</a>
+            <a href="my-reports.html" class="btn btn-outline">View My Reports</a>
+            <a href="suggestion.html" class="btn btn-outline">Submit Suggestion</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/citizen.js"></script>
+</body>
+</html>

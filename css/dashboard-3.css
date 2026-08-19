@@ -1,0 +1,858 @@
+/* ============================================
+   CIVIC REPORTING APP — DASHBOARD STYLESHEET
+   Shared layout for Citizen dashboard pages.
+   Depends on: style.css (variables, reset, buttons, badges)
+   ============================================ */
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: #16283b;
+  color: #c7d3de;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  transition: transform var(--transition);
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.5rem 1.5rem 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-logo .logo-icon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1.25rem 0.75rem;
+  overflow-y: auto;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #c7d3de;
+  margin-bottom: 0.2rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.sidebar-nav a .nav-icon {
+  font-size: 1.05rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.sidebar-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.sidebar-nav a.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.sidebar-footer {
+  padding: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #e2a13c;
+}
+
+.sidebar-footer a:hover {
+  background-color: rgba(226, 161, 60, 0.12);
+}
+
+/* Sidebar overlay (mobile only) */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 25, 40, 0.5);
+  z-index: 150;
+}
+
+.sidebar-overlay.is-visible {
+  display: block;
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+.dashboard-main {
+  flex: 1;
+  min-width: 0;
+  background-color: var(--color-bg-alt);
+}
+
+/* ---------- Dashboard Header ---------- */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.1rem 1.75rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-text);
+}
+
+.dashboard-header h1 {
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.dashboard-header .subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notification-btn {
+  position: relative;
+  background: none;
+  border: 1px solid var(--color-border);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+}
+
+.notification-btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+.notification-dot {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-danger);
+  border: 2px solid #ffffff;
+}
+
+.header-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ---------- Dashboard Content Wrapper ---------- */
+.dashboard-content {
+  padding: 1.75rem;
+}
+
+/* ============================================
+   STAT CARDS
+   ============================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.stat-icon.icon-total {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.stat-icon.icon-pending {
+  background-color: #fdf1dc;
+  color: #a3711a;
+}
+
+.stat-icon.icon-progress {
+  background-color: #ede3fb;
+  color: #6b3fa0;
+}
+
+.stat-icon.icon-resolved {
+  background-color: #e3f6ea;
+  color: #2f9e5c;
+}
+
+.stat-info .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.stat-info .stat-label {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+/* ============================================
+   DASHBOARD SECTIONS / CARDS
+   ============================================ */
+.dashboard-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-card-header h2 {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.dashboard-card-header .link-primary {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* ---------- Data Table ---------- */
+.table-scroll {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  color: var(--color-text-light);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--color-bg-alt);
+}
+
+.data-table .report-id {
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--color-text-light);
+}
+
+/* ---------- Quick Actions ---------- */
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.quick-actions .btn {
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+}
+
+/* ============================================
+   FORM PAGES (Report an Issue, Suggestion, Profile)
+   ============================================ */
+.form-card {
+  max-width: 680px;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 140px;
+  font-family: inherit;
+}
+
+select.form-control {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-text-light) 50%),
+    linear-gradient(135deg, var(--color-text-light) 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 13px) calc(50% - 3px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+}
+
+.field-hint {
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  margin-top: 0.35rem;
+}
+
+/* ---------- File upload ---------- */
+.file-upload {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.file-upload:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload-label {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+.file-upload-label strong {
+  color: var(--color-primary);
+}
+
+.image-preview {
+  display: none;
+  margin-top: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  max-width: 260px;
+}
+
+.image-preview.is-visible {
+  display: block;
+}
+
+.image-preview img {
+  width: 100%;
+  display: block;
+}
+
+.image-preview-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+}
+
+.remove-image-btn {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+/* ---------- Success panel (shown after demo submit) ---------- */
+.success-panel {
+  display: none;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.success-panel.is-visible {
+  display: block;
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #e3f6ea;
+  color: var(--color-success);
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.success-panel h2 {
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.success-panel p {
+  color: var(--color-text-light);
+  margin-bottom: 1.75rem;
+}
+
+.success-panel .report-id-highlight {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+.success-panel .success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   MY REPORTS — SEARCH & FILTER BAR
+   ============================================ */
+.reports-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-field {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+
+.search-field input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  background-color: #ffffff;
+}
+
+.search-field input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.search-field .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.9rem;
+  transform: translateY(-50%);
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-chip {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-light);
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.filter-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-chip.is-active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Clickable report rows */
+.data-table tbody tr.report-row {
+  cursor: pointer;
+}
+
+.data-table tbody tr.report-row:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* ============================================
+   REPORT DETAILS PAGE
+   ============================================ */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.back-link:hover {
+  color: var(--color-primary);
+}
+
+.detail-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detail-card-header h2 {
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
+}
+
+.detail-card-header .report-id {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item .detail-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-light);
+  margin-bottom: 0.3rem;
+}
+
+.detail-item .detail-value {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.detail-description {
+  margin-bottom: 1.5rem;
+}
+
+.detail-description .detail-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.detail-description p {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.detail-image {
+  margin-bottom: 1.5rem;
+  max-width: 360px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.admin-response-box {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.25rem;
+}
+
+.admin-response-box .detail-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.admin-response-box p {
+  color: var(--color-text-light);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+/* ============================================
+   REPORT DETAILS — PROGRESS STEPPER
+   ============================================ */
+.progress-stepper {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.75rem;
+}
+
+.progress-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.progress-step .step-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--color-bg-alt);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin: 0 auto 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-step .step-line {
+  position: absolute;
+  top: 17px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-border);
+  z-index: 1;
+}
+
+.progress-step:first-child .step-line {
+  display: none;
+}
+
+.progress-step .step-label {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+.progress-step.is-complete .step-circle {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.progress-step.is-complete .step-line {
+  background-color: var(--color-primary);
+}
+
+.progress-step.is-current .step-circle {
+  background-color: #ffffff;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-light);
+}
+
+.progress-step.is-current .step-label,
+.progress-step.is-complete .step-label {
+  color: var(--color-text);
+}
+
+.progress-stepper.is-rejected .step-circle {
+  background-color: #fbe6e6;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.progress-stepper.is-rejected .step-line {
+  background-color: var(--color-danger);
+}
+
+.detail-actions {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-content {
+    padding: 1.25rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    padding: 1rem;
+  }
+
+  .quick-actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .reports-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-step .step-label {
+    font-size: 0.68rem;
+  }
+
+  .progress-step .step-circle {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .progress-step .step-line {
+    top: 14px;
+  }
+}

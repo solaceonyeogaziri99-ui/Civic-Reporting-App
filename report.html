@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report an Issue | Civic Reporting</title>
+  <meta name="description" content="Report a problem in your community." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Citizen navigation">
+        <a href="dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span> Dashboard
+        </a>
+        <a href="report.html" class="active">
+          <span class="nav-icon" aria-hidden="true">📝</span> Report an Issue
+        </a>
+        <a href="my-reports.html">
+          <span class="nav-icon" aria-hidden="true">📄</span> My Reports
+        </a>
+        <a href="suggestion.html">
+          <span class="nav-icon" aria-hidden="true">💡</span> Submit Suggestion
+        </a>
+        <a href="profile.html">
+          <span class="nav-icon" aria-hidden="true">👤</span> Profile
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../login.html" class="logout-link">
+          <span class="nav-icon" aria-hidden="true">↩</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="dashboard-main">
+
+      <!-- ============ HEADER ============ -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <h1>Report an Issue</h1>
+            <p class="subtitle">Tell us about a problem in your community.</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="notification-btn" aria-label="View notifications">
+            🔔
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="header-avatar" aria-hidden="true">C</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+
+        <!-- ============ REPORT FORM ============ -->
+        <section class="dashboard-card form-card" id="reportFormCard">
+          <div class="dashboard-card-header">
+            <h2>Issue Details</h2>
+          </div>
+
+          <form id="reportForm" novalidate>
+            <div class="form-group">
+              <label for="reportTitle">Report Title</label>
+              <input
+                type="text"
+                id="reportTitle"
+                name="reportTitle"
+                class="form-control"
+                placeholder="e.g. Broken street light"
+                aria-describedby="reportTitleError"
+              />
+              <p id="reportTitleError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="reportCategory">Category</label>
+              <select id="reportCategory" name="reportCategory" class="form-control" aria-describedby="reportCategoryError">
+                <option value="">Select a category</option>
+                <option value="Electrical Issues">Electrical Issues</option>
+                <option value="Bad Roads">Bad Roads</option>
+                <option value="Environmental Pollution">Environmental Pollution</option>
+                <option value="Water Problems">Water Problems</option>
+                <option value="Waste Management">Waste Management</option>
+                <option value="Public Facilities">Public Facilities</option>
+                <option value="Other">Other</option>
+              </select>
+              <p id="reportCategoryError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="reportDescription">Description</label>
+              <textarea
+                id="reportDescription"
+                name="reportDescription"
+                class="form-control"
+                placeholder="Describe the issue in as much detail as possible..."
+                aria-describedby="reportDescriptionError"
+              ></textarea>
+              <p id="reportDescriptionError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="reportLocation">Location</label>
+              <input
+                type="text"
+                id="reportLocation"
+                name="reportLocation"
+                class="form-control"
+                placeholder="e.g. Osisioma, Aba"
+                aria-describedby="reportLocationError"
+              />
+              <p id="reportLocationError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="reportImage">Photo</label>
+              <label class="file-upload" for="reportImage">
+                <input type="file" id="reportImage" name="reportImage" accept="image/*" />
+                <span class="file-upload-label" id="fileUploadLabel">
+                  <strong>Click to upload a photo</strong> (optional)
+                </span>
+              </label>
+              <p class="field-hint">A clear photo helps administrators understand the issue faster.</p>
+
+              <div class="image-preview" id="imagePreview">
+                <img id="imagePreviewImg" src="" alt="Preview of the selected report photo" />
+                <div class="image-preview-footer">
+                  <span id="imagePreviewName"></span>
+                  <button type="button" class="remove-image-btn" id="removeImageBtn">Remove</button>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Submit Report</button>
+          </form>
+        </section>
+
+        <!-- ============ SUCCESS PANEL (shown after demo submit) ============ -->
+        <section class="dashboard-card success-panel" id="successPanel">
+          <div class="success-icon" aria-hidden="true">✓</div>
+          <h2>Report Submitted</h2>
+          <p id="successMessage">Report submitted successfully.</p>
+          <div class="success-actions">
+            <a href="my-reports.html" class="btn btn-primary">View My Reports</a>
+            <a href="report.html" class="btn btn-outline">Submit Another Report</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/citizen.js"></script>
+</body>
+</html>

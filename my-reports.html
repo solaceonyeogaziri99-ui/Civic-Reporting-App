@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Reports | Civic Reporting</title>
+  <meta name="description" content="View and track the status of your submitted reports." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Citizen navigation">
+        <a href="dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span> Dashboard
+        </a>
+        <a href="report.html">
+          <span class="nav-icon" aria-hidden="true">📝</span> Report an Issue
+        </a>
+        <a href="my-reports.html" class="active">
+          <span class="nav-icon" aria-hidden="true">📄</span> My Reports
+        </a>
+        <a href="suggestion.html">
+          <span class="nav-icon" aria-hidden="true">💡</span> Submit Suggestion
+        </a>
+        <a href="profile.html">
+          <span class="nav-icon" aria-hidden="true">👤</span> Profile
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../login.html" class="logout-link">
+          <span class="nav-icon" aria-hidden="true">↩</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="dashboard-main">
+
+      <!-- ============ HEADER ============ -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <h1>My Reports</h1>
+            <p class="subtitle">Search, filter, and track your submitted reports.</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="notification-btn" aria-label="View notifications">
+            🔔
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="header-avatar" aria-hidden="true">C</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+
+        <section class="dashboard-card">
+          <div class="dashboard-card-header">
+            <h2>All Reports</h2>
+            <a href="report.html" class="link-primary">+ New Report</a>
+          </div>
+
+          <!-- ============ SEARCH + FILTER ============ -->
+          <div class="reports-toolbar">
+            <div class="search-field">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <input
+                type="text"
+                id="reportSearchInput"
+                placeholder="Search by title or Report ID..."
+                aria-label="Search reports by title or ID"
+              />
+            </div>
+
+            <div class="filter-chips" role="group" aria-label="Filter reports by status">
+              <button type="button" class="filter-chip is-active" data-status="all">All</button>
+              <button type="button" class="filter-chip" data-status="pending">Pending</button>
+              <button type="button" class="filter-chip" data-status="under-review">Under Review</button>
+              <button type="button" class="filter-chip" data-status="in-progress">In Progress</button>
+              <button type="button" class="filter-chip" data-status="resolved">Resolved</button>
+              <button type="button" class="filter-chip" data-status="rejected">Rejected</button>
+            </div>
+          </div>
+
+          <!-- ============ REPORTS TABLE ============ -->
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Report ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="myReportsBody">
+                <!-- Populated by js/citizen.js: demo data + LocalStorage submissions -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/citizen.js"></script>
+</body>
+</html>

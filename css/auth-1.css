@@ -1,0 +1,236 @@
+/* ============================================
+   CIVIC REPORTING APP — AUTH PAGES STYLESHEET
+   (Login / Register)
+   Depends on: style.css (variables, reset, navbar, footer)
+   ============================================ */
+
+.auth-main {
+  background-color: var(--color-bg-alt);
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 0;
+}
+
+.auth-wrapper {
+  width: 90%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.auth-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2.5rem 2.25rem;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5rem;
+}
+
+.auth-logo .logo-icon {
+  width: 34px;
+  height: 34px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.auth-heading {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.auth-heading h1 {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.auth-heading p {
+  color: var(--color-text-light);
+  font-size: 0.92rem;
+}
+
+/* ---------- Form Elements ---------- */
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  color: var(--color-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.form-control.has-error {
+  border-color: var(--color-danger);
+}
+
+.form-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.error-message {
+  display: none;
+  color: var(--color-danger);
+  font-size: 0.82rem;
+  margin-top: 0.4rem;
+}
+
+.error-message.is-visible {
+  display: block;
+}
+
+.form-control.has-error + .error-message {
+  display: block;
+}
+
+/* ---------- Password field with show/hide toggle ---------- */
+.password-field {
+  position: relative;
+}
+
+.password-field .form-control {
+  padding-right: 3rem;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 0.7rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-text-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.3rem 0.4rem;
+}
+
+.toggle-password:hover {
+  color: var(--color-primary);
+}
+
+/* ---------- Row helpers ---------- */
+.form-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 0.88rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-row input {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.form-group .checkbox-row {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.link-primary {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.link-primary:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Auth footer text ---------- */
+.auth-footer-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin-top: 1.5rem;
+}
+
+/* ---------- Form-level status banner (success/error) ---------- */
+.form-banner {
+  display: none;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-banner.is-visible {
+  display: block;
+}
+
+.form-banner.banner-error {
+  background-color: #fbe6e6;
+  color: #a13333;
+}
+
+.form-banner.banner-success {
+  background-color: #e3f6ea;
+  color: #237a48;
+}
+
+/* ---------- Demo helper note (explains frontend-only behavior) ---------- */
+.demo-note {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-size: 0.82rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .form-row-split {
+    grid-template-columns: 1fr;
+  }
+}

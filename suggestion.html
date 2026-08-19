@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Suggestion | Civic Reporting</title>
+  <meta name="description" content="Share an idea to help improve your community." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/auth.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">C</span>
+        Civic Reporting
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Citizen navigation">
+        <a href="dashboard.html">
+          <span class="nav-icon" aria-hidden="true">🏠</span> Dashboard
+        </a>
+        <a href="report.html">
+          <span class="nav-icon" aria-hidden="true">📝</span> Report an Issue
+        </a>
+        <a href="my-reports.html">
+          <span class="nav-icon" aria-hidden="true">📄</span> My Reports
+        </a>
+        <a href="suggestion.html" class="active">
+          <span class="nav-icon" aria-hidden="true">💡</span> Submit Suggestion
+        </a>
+        <a href="profile.html">
+          <span class="nav-icon" aria-hidden="true">👤</span> Profile
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../login-1.html" class="logout-link">
+          <span class="nav-icon" aria-hidden="true">↩</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="dashboard-main">
+
+      <!-- ============ HEADER ============ -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div>
+            <h1>Submit Suggestion</h1>
+            <p class="subtitle">Share an idea to help improve your community.</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="notification-btn" aria-label="View notifications">
+            🔔
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="header-avatar" aria-hidden="true">C</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+
+        <!-- ============ SUGGESTION FORM ============ -->
+        <section class="dashboard-card form-card" id="suggestionFormCard">
+          <div class="dashboard-card-header">
+            <h2>Your Suggestion</h2>
+          </div>
+
+          <form id="suggestionForm" novalidate>
+            <div class="form-group">
+              <label for="suggestionTitle">Suggestion Title</label>
+              <input
+                type="text"
+                id="suggestionTitle"
+                name="suggestionTitle"
+                class="form-control"
+                placeholder="e.g. Add more streetlights on Faulks Road"
+                aria-describedby="suggestionTitleError"
+              />
+              <p id="suggestionTitleError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="suggestionDescription">Description</label>
+              <textarea
+                id="suggestionDescription"
+                name="suggestionDescription"
+                class="form-control"
+                placeholder="Describe your idea and how it could help the community..."
+                aria-describedby="suggestionDescriptionError"
+              ></textarea>
+              <p id="suggestionDescriptionError" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Submit Suggestion</button>
+          </form>
+        </section>
+
+        <!-- ============ SUCCESS PANEL (shown after demo submit) ============ -->
+        <section class="dashboard-card success-panel" id="suggestionSuccessPanel">
+          <div class="success-icon" aria-hidden="true">✓</div>
+          <h2>Suggestion Submitted</h2>
+          <p>Thank you. Your suggestion has been submitted.</p>
+          <div class="success-actions">
+            <a href="dashboard.html" class="btn btn-primary">Back to Dashboard</a>
+            <a href="suggestion.html" class="btn btn-outline">Submit Another Suggestion</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/citizen.js"></script>
+</body>
+</html>
